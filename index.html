@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BlueField Atelier | 심플하고 유용한 소프트웨어를 빚어내는 개인 개발 스튜디오">
+    <title>BlueField Atelier | 모바일 앱 스튜디오</title>
+    <!-- Favicon / Icon -->
+    <link rel="icon" type="image/png" href="atelier_logo.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="atelier_logo.png" alt="BlueField Atelier" class="logo-img">
+                <span class="logo-title">BlueField Atelier</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#about" class="nav-item" data-i18n="nav_about">소개</a>
+                <a href="#featured" class="nav-item" data-i18n="nav_featured">대표 앱</a>
+                <a href="#projects" class="nav-item" data-i18n="nav_projects">프로젝트</a>
+                <a href="#status" class="nav-item" data-i18n="nav_status">서버 상태</a>
+                <a href="#contact" class="nav-item" data-i18n="nav_contact">소통하기</a>
+            </nav>
+            <div class="nav-right-actions">
+                <button id="langToggleBtn" class="lang-toggle-btn" aria-label="Language Toggle">🌐 EN</button>
+                <div class="server-status-badge" id="headerStatusBadge">
+                    <span class="pulse-dot"></span>
+                    <span class="status-text" id="headerStatusText">Server Online</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Hero Section with Standalone Center-Cropped Banner Image -->
+        <section id="about" class="hero-section">
+            <div class="hero-banner-container">
+                <img src="hero_bg.jpg" alt="BlueField Atelier 시그니처 배너" class="hero-banner-img">
+            </div>
+            <div class="hero-content">
+                <div class="badge-pill">
+                    <span data-i18n="hero_pill">BlueField Atelier Studio</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-title-phrase" data-i18n="hero_title_1">소소하지만 필요한 가치를</span>
+                    <span class="hero-title-phrase" data-i18n="hero_title_2">정성껏 빚어냅니다.</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">
+                    블루필드 아틀리에는 일상에 유용한 모바일 애플리케이션과 안정적인 소프트웨어를 제작하는 개인 개발 스튜디오입니다.
+                </p>
+                <div class="hero-actions">
+                    <a href="https://play.google.com/store/apps/dev?id=9074324001499723435" target="_blank"
+                        rel="noopener" class="btn btn-primary">
+                        <span data-i18n="hero_btn">Google Play 개발자 페이지 ↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured App Section ('O-NEUL') -->
+        <section id="featured" class="section featured-section">
+            <div class="section-label" data-i18n="flagship_label">FLAGSHIP APPLICATION</div>
+            <div class="featured-card">
+                <div class="featured-header">
+                    <div class="featured-app-icon-container">
+                        <img src="oneul_icon.png" alt="O-NEUL 앱 아이콘" class="featured-app-icon-img">
+                    </div>
+                    <div class="featured-title-group">
+                        <span class="featured-tag" data-i18n="oneul_badge">🚀 출시 예정</span>
+                        <h2 class="featured-app-title" data-i18n="oneul_title">O-NEUL - AI 음성 일기</h2>
+                        <p class="featured-app-sub" data-i18n="oneul_sub">AI가 정리해주는 프라이빗 음성 일기</p>
+                    </div>
+                </div>
+                <div class="featured-body">
+                    <p class="featured-desc" data-i18n="oneul_desc">
+                        하루의 소중한 목소리와 감정을 음성으로 편안하게 남기면, AI가 요약과 감성 분석을 더해 나만의 단 하나뿐인 일기로 자동 정리해주는 BlueField Atelier의 차세대
+                        주력 모바일 앱입니다.
+                    </p>
+                    <div class="featured-tags">
+                        <span class="ftag" data-i18n="oneul_tag1">#AI음성일기</span>
+                        <span class="ftag" data-i18n="oneul_tag2">#음성인식</span>
+                        <span class="ftag" data-i18n="oneul_tag3">#프라이빗일기</span>
+                        <span class="ftag" data-i18n="oneul_tag4">#출시예정</span>
+                    </div>
+                </div>
+                <div class="featured-footer">
+                    <div class="btn btn-upcoming btn-lg">
+                        <span data-i18n="oneul_btn">✨ 출시 준비 중</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Projects & Apps Grid -->
+        <section id="projects" class="section projects-section">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="projects_title">스튜디오 프로젝트 & 앱</h2>
+                <p class="section-description" data-i18n="projects_sub">블루필드 아틀리에에서 선보이는 프로젝트 모음입니다.</p>
+            </div>
+
+            <div class="projects-grid" id="projectsContainer">
+                <!-- Dynamically filled by script.js -->
+            </div>
+        </section>
+
+        <!-- Minimal Server Status Telemetry -->
+        <section id="status" class="section status-section">
+            <div class="status-box">
+                <div class="status-header-row">
+                    <div class="status-title-group">
+                        <h3 data-i18n="status_title">📡 서버 상태 모니터링</h3>
+                        <p data-i18n="status_sub">현재 블루필드 아틀리에 웹 인프라의 가동 상태입니다.</p>
+                    </div>
+                    <button class="btn btn-sm btn-secondary" id="btnPingCheck" data-i18n="status_btn_ping">핑
+                        재측정</button>
+                </div>
+                <div class="status-metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-key" data-i18n="status_key_server">가동 상태</span>
+                        <span class="metric-val status-online" id="statusValServer">🟢 정상 가동 중 (200 OK)</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-key" data-i18n="status_key_uptime">서버 업타임</span>
+                        <span class="metric-val" id="statusValUptime">-- 초</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-key" data-i18n="status_key_ping">응답 지연 시간</span>
+                        <span class="metric-val" id="statusValPing">-- ms</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-key" data-i18n="status_key_runtime">런타임 환경</span>
+                        <span class="metric-val" id="statusRuntimeLabel">Python 3.10 | Linux</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warm & Friendly Communication Section ('소통하기') -->
+        <section id="contact" class="section contact-section">
+            <div class="contact-card">
+                <div class="contact-header">
+                    <h2 data-i18n="contact_title">소통하기</h2>
+                    <p data-i18n="contact_sub">앱 사용 피드백, 제안, 응원의 한마디 등 어떤 이야기든 자유롭게 남겨주세요.</p>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="senderName" data-i18n="contact_name_label">이름 / 닉네임</label>
+                            <input type="text" id="senderName" data-i18n-ph="contact_name_ph" placeholder="어떻게 불러드릴까요?"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="senderEmail" data-i18n="contact_email_label">이메일 주소</label>
+                            <input type="email" id="senderEmail" data-i18n-ph="contact_email_ph"
+                                placeholder="답변받으실 이메일 주소" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="senderMessage" data-i18n="contact_msg_label">전하고 싶은 이야기</label>
+                        <textarea id="senderMessage" rows="4" data-i18n-ph="contact_msg_ph"
+                            placeholder="소소한 피드백이나 응원의 메시지 등 자유롭게 남겨주세요..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="btnSubmitContact">
+                        <span data-i18n="contact_btn_submit">💌 마음 전하기</span>
+                    </button>
+                </form>
+                <div id="formResponse" class="form-response hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin Inquiry Modal -->
+    <div id="adminModal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 data-i18n="modal_title">📬 수신된 이야기함 (운영자)</h3>
+                <button class="modal-close" id="btnCloseAdminModal">&times;</button>
+            </div>
+            <div class="modal-body" id="adminInquiryList">
+                <p style="color:var(--text-muted);" data-i18n="modal_loading">이야기 목록을 불러오는 중...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-brand-row">
+                    <img src="atelier_logo.png" alt="BlueField Atelier" class="footer-logo-img">
+                    <span class="footer-logo">BlueField Atelier</span>
+                </div>
+                <p data-i18n="footer_desc">소소하지만 필요한 가치를 빚어내는 개인 개발 스튜디오</p>
+            </div>
+            <div class="footer-right">
+                <button id="btnOpenAdminModal" class="footer-admin-btn" data-i18n="footer_admin_btn">📩 수신 이야기함
+                    확인</button>
+                <p>&copy; 2026 BlueField Atelier. All rights reserved.</p>
+                <p class="footer-sub">Server: http://bluefield-atelier.iptime.org</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
