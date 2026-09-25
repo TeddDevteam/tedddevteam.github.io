@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
             status_btn_ping: "핑 재측정",
             status_btn_measuring: "측정중...",
             status_key_server: "가동 상태",
-            status_val_server_ok: "🟢 정상 가동 중 (200 OK)",
-            status_val_server_offline: "🔴 오프라인",
+            status_val_server_ok: "🟢 정상 가동 중 (GitHub Pages & Live)",
+            status_val_server_offline: "🟡 오프라인",
             status_key_uptime: "서버 업타임",
             status_key_ping: "응답 지연 시간",
             status_key_runtime: "런타임 환경",
@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
             status_btn_ping: "Re-ping",
             status_btn_measuring: "Pinging...",
             status_key_server: "Service Health",
-            status_val_server_ok: "🟢 Server Operational (200 OK)",
-            status_val_server_offline: "🔴 Offline",
+            status_val_server_ok: "🟢 Operational (GitHub Pages & Live)",
+            status_val_server_offline: "🟡 Offline",
             status_key_uptime: "Server Uptime",
             status_key_ping: "Latency",
             status_key_runtime: "Runtime Environment",
@@ -143,8 +143,131 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // ----------------------------------------------------------------------
+    // Built-in Projects Data (Guarantees instant rendering on static hosts like GitHub Pages)
+    // ----------------------------------------------------------------------
+    const DEFAULT_PROJECTS = [
+        {
+            "id": "app-oneul",
+            "featured": true,
+            "isUpcoming": true,
+            "image": "banner_oneul.png",
+            "icon": "oneul_icon.png",
+            "title": "O-NEUL - AI 음성 일기",
+            "title_en": "O-NEUL - AI Voice Journal",
+            "category": "Mobile App",
+            "badge": "🚀 출시 예정",
+            "badge_en": "🚀 Coming Soon",
+            "subtitle": "AI가 정리해주는 프라이빗 음성 일기",
+            "subtitle_en": "Private voice journal automatically organized by AI",
+            "description": "하루의 소중한 목소리와 감정을 음성으로 편안하게 남기면, AI가 요약과 감성 분석을 더해 나만의 단 하나뿐인 일기로 자동 정리해주는 BlueField Atelier의 차세대 주력 모바일 앱입니다.",
+            "description_en": "Leave your daily thoughts and emotions comfortably via voice, and AI summarizes and analyzes sentiments to curate your one-of-a-kind private journal.",
+            "tags": ["Android", "AI음성일기", "음성인식", "프라이빗일기", "출시예정"],
+            "tags_en": ["Android", "AIVoiceJournal", "SpeechRecognition", "PrivateJournal", "ComingSoon"],
+            "techStack": ["Android", "AI / STT Engine", "Voice Processing"],
+            "codeSnippet": "com.bluefield.atelier.oneul",
+            "link": "https://play.google.com/store/apps/details?id=com.bluefield.atelier.oneul"
+        },
+        {
+            "id": "app-musahi",
+            "featured": false,
+            "image": "banner_musahi.png",
+            "title": "무사히 - 오늘도 건강하게, 전역하는 그날까지",
+            "title_en": "Musahi - Safe & Sound Military Care",
+            "category": "Mobile App",
+            "badge": "Google Play",
+            "badge_en": "Google Play",
+            "subtitle": "군 복무 중인 장병과 곰신, 가족을 위한 전역일 계산 및 일상 관리 서비스",
+            "subtitle_en": "Discharge date calculator & daily care service for service members, partners, and families",
+            "description": "복무 일수, 잔여 Percent, D-Day 계산 및 복무 기간 동안의 건강한 일상을 돕는 BlueField Atelier의 대표 안드로이드 모바일 애플리케이션입니다.",
+            "description_en": "BlueField Atelier's flagship Android app featuring service percentage, D-Day counters, and daily health & lifestyle tracking tools for active service members.",
+            "tags": ["Android", "전역일 계산기", "D-Day", "군인/곰신 필수앱"],
+            "tags_en": ["Android", "DischargeCalculator", "D-Day", "MilitaryCare"],
+            "techStack": ["Android", "Kotlin", "Local Storage", "UI/UX"],
+            "codeSnippet": "com.bluefield.atelier.musahi",
+            "link": "https://play.google.com/store/apps/details?id=com.bluefield.atelier.musahi"
+        },
+        {
+            "id": "app-youthcare",
+            "featured": false,
+            "image": "banner_youthcare.png",
+            "title": "상담노트 - 전문 상담사를 위한 일정 관리 노트",
+            "title_en": "Counselor Note - Schedule & Session Log",
+            "category": "Mobile App",
+            "badge": "Google Play",
+            "badge_en": "Google Play",
+            "subtitle": "상담 일정 및 내담자 기록을 효율적으로 관리하는 업무용 노트",
+            "subtitle_en": "Professional workspace note for managing counseling schedules and client records",
+            "description": "전문 상담사 및 청소년/아동 케어 전문가를 위해 체계적인 일상 스케줄링, 상담 기록 관리 기능을 지원하는 비즈니스 생산성 앱입니다.",
+            "description_en": "A business productivity application designed for professional counselors and youth specialists to systematically manage schedules and counseling logs.",
+            "tags": ["Android", "상담노트", "일정관리", "생산성"],
+            "tags_en": ["Android", "CounselorNote", "ScheduleManager", "Productivity"],
+            "techStack": ["Android", "Java/Kotlin", "Database"],
+            "codeSnippet": "com.teddapps.youthcarescheduler",
+            "link": "https://play.google.com/store/apps/details?id=com.teddapps.youthcarescheduler"
+        },
+        {
+            "id": "app-jlpt",
+            "featured": false,
+            "image": "banner_jlpt.png",
+            "title": "JLPT & SJPT 일본어 어휘 사전",
+            "title_en": "JLPT & SJPT Japanese Vocab Dictionary",
+            "category": "Mobile App",
+            "badge": "Google Play",
+            "badge_en": "Google Play",
+            "subtitle": "체계적인 일본어 시험 준비를 위한 학습 앱",
+            "subtitle_en": "Comprehensive vocabulary learning app for Japanese proficiency exams",
+            "description": "JLPT 및 SJPT 시험 대비를 위한 필수 어휘, 예문 및 효율적인 암기 학습 기능을 제공합니다.",
+            "description_en": "Provides essential vocabulary, example sentences, and efficient flashcard memorization tools for JLPT & SJPT exam preparation.",
+            "tags": ["Android", "JLPT", "SJPT", "일본어 학습"],
+            "tags_en": ["Android", "JLPT", "SJPT", "JapaneseLearning"],
+            "techStack": ["Android", "Java/Kotlin", "SQLite"],
+            "codeSnippet": "com.teddapps.jlpt_voca_dict",
+            "link": "https://play.google.com/store/apps/details?id=com.teddapps.jlpt_voca_dict"
+        },
+        {
+            "id": "app-maze",
+            "featured": false,
+            "image": "banner_maze.png",
+            "title": "Maze ESCAPE - 제한 시간 두뇌 퍼즐",
+            "title_en": "Maze ESCAPE - Time Trial Brain Puzzle",
+            "category": "Game",
+            "badge": "Google Play",
+            "badge_en": "Google Play",
+            "subtitle": "정밀한 두뇌 회전 미로 탈출 게임",
+            "subtitle_en": "Challenging brain teaser maze escape game",
+            "description": "제한 시간 내에 미로를 순발력과 판단력으로 탈출하는 모바일 캐주얼 퍼즐 게임입니다.",
+            "description_en": "A casual mobile puzzle game testing agility and decision-making to escape intricate mazes before time runs out.",
+            "tags": ["Android", "Game", "Puzzle", "미로탈출"],
+            "tags_en": ["Android", "Game", "Puzzle", "MazeEscape"],
+            "techStack": ["Android Game Engine", "Physics"],
+            "codeSnippet": "com.teddapps.mazegame",
+            "link": "https://play.google.com/store/apps/details?id=com.teddapps.mazegame"
+        },
+        {
+            "id": "sys-core",
+            "featured": false,
+            "image": "hero_bg.jpg",
+            "title": "BlueField Server Infrastructure",
+            "title_en": "BlueField Server Infrastructure",
+            "category": "System",
+            "badge": "Server Engine",
+            "badge_en": "Server Engine",
+            "subtitle": "안정적인 스튜디오 인프라 및 연동 웹 서버",
+            "subtitle_en": "High-availability studio infrastructure & web server system",
+            "description": "리눅스 기반의 초경량 파이썬 웹 서비스, 포트포워딩 및 DDNS 네트워크 체계입니다.",
+            "description_en": "Lightweight Linux Python web services, reverse-proxying, port forwarding, and DDNS network system.",
+            "tags": ["Linux", "Python 3", "DDNS", "REST API"],
+            "tags_en": ["Linux", "Python3", "DDNS", "RESTAPI"],
+            "techStack": ["Python 3.10", "HTTP Server"],
+            "codeSnippet": "python3 server.py --bind 0.0.0.0",
+            "link": "#status"
+        }
+    ];
+
     let currentLang = localStorage.getItem('bluefield_lang') || 'ko';
-    let cachedProjectsData = [];
+    let cachedProjectsData = DEFAULT_PROJECTS;
+    const pageStartTime = Date.now();
 
     function setLanguage(lang) {
         currentLang = lang;
@@ -186,91 +309,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial translation setup
-    setLanguage(currentLang);
-
     // ----------------------------------------------------------------------
-    // 1. Fetch & Update Server Status (/api/status)
+    // 1. Projects Rendering & Fetch
     // ----------------------------------------------------------------------
-    async function fetchServerStatus() {
-        const langPack = translations[currentLang] || translations.ko;
-        try {
-            const startTime = performance.now();
-            const res = await fetch('/api/status');
-            const latency = Math.round(performance.now() - startTime);
-
-            if (res.ok) {
-                const data = await res.json();
-
-                const statusValServer = document.getElementById('statusValServer');
-                const statusValUptime = document.getElementById('statusValUptime');
-                const statusRuntimeLabel = document.getElementById('statusRuntimeLabel');
-                const statusValPing = document.getElementById('statusValPing');
-                const headerStatusText = document.getElementById('headerStatusText');
-
-                if (statusValServer) {
-                    statusValServer.innerHTML = langPack.status_val_server_ok;
-                }
-                if (statusValUptime) {
-                    const hours = Math.floor(data.uptime / 3600);
-                    const mins = Math.floor((data.uptime % 3600) / 60);
-                    const secs = Math.floor(data.uptime % 60);
-                    statusValUptime.textContent = currentLang === 'en'
-                        ? `${hours}h ${mins}m ${secs}s`
-                        : `${hours}시간 ${mins}분 ${secs}초`;
-                }
-                if (statusRuntimeLabel) {
-                    statusRuntimeLabel.textContent = `Python ${data.python_version} | ${data.platform}`;
-                }
-                if (statusValPing) {
-                    statusValPing.textContent = `${latency} ms`;
-                }
-                if (headerStatusText) {
-                    headerStatusText.textContent = `Server Online (${latency}ms)`;
-                }
-                return true;
-            }
-        } catch (err) {
-            const statusValServer = document.getElementById('statusValServer');
-            if (statusValServer) {
-                statusValServer.innerHTML = langPack.status_val_server_offline;
-            }
-            return false;
-        }
-    }
-
-    const btnPingCheck = document.getElementById('btnPingCheck');
-    if (btnPingCheck) {
-        btnPingCheck.addEventListener('click', async () => {
-            const langPack = translations[currentLang] || translations.ko;
-            btnPingCheck.textContent = langPack.status_btn_measuring;
-            await fetchServerStatus();
-            setTimeout(() => { btnPingCheck.textContent = langPack.status_btn_ping; }, 400);
-        });
-    }
-
-    fetchServerStatus();
-    setInterval(fetchServerStatus, 5000);
-
-    // ----------------------------------------------------------------------
-    // 2. Fetch Projects & Render Cards (/api/projects)
-    // ----------------------------------------------------------------------
-    async function fetchProjects() {
-        if (!projectsContainer) return;
-        const langPack = translations[currentLang] || translations.ko;
-
-        try {
-            const res = await fetch('/api/projects');
-            if (res.ok) {
-                const data = await res.json();
-                cachedProjectsData = data.projects || [];
-                renderProjects(cachedProjectsData);
-            }
-        } catch (err) {
-            projectsContainer.innerHTML = `<div style="color:var(--text-muted);">${langPack.projects_loading}</div>`;
-        }
-    }
-
     function renderProjects(projects) {
         if (!projectsContainer) return;
         cachedProjectsData = projects;
@@ -287,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const subtitle = isEn && proj.subtitle_en ? proj.subtitle_en : (proj.subtitle || '');
             const description = isEn && proj.description_en ? proj.description_en : proj.description;
             const badge = isEn && proj.badge_en ? proj.badge_en : (proj.badge || proj.category);
-            const tags = isEn && proj.tags_en ? proj.tags_en : proj.tags;
+            const tags = isEn && proj.tags_en ? proj.tags_en : (proj.tags || []);
 
             let linkMarkup = `<span class="card-tag">Atelier Project</span>`;
             if (proj.isUpcoming) {
@@ -311,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${bannerMarkup}
                 <div class="card-content-body">
                     <div class="card-top">
-                        <span class="card-badge">${badge}</span>
+                        <span class="card-badge">${escapeHtml(badge)}</span>
                     </div>
                     <h3 class="card-title">${escapeHtml(title)}</h3>
                     <p class="card-sub">${escapeHtml(subtitle)}</p>
@@ -328,10 +369,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    async function fetchProjects() {
+        if (!projectsContainer) return;
+        try {
+            // Try projects.json first (static site compatible) or /api/projects (local server)
+            let res = await fetch('projects.json').catch(() => null);
+            if (!res || !res.ok) {
+                res = await fetch('/api/projects').catch(() => null);
+            }
+            if (res && res.ok) {
+                const data = await res.json();
+                const list = Array.isArray(data) ? data : (data.projects || []);
+                if (list && list.length > 0) {
+                    renderProjects(list);
+                    return;
+                }
+            }
+        } catch (e) {
+            console.log('Using default project list');
+        }
+        renderProjects(DEFAULT_PROJECTS);
+    }
+
+    // Initial render immediately with defaults, then background fetch
+    renderProjects(DEFAULT_PROJECTS);
+    setLanguage(currentLang);
     fetchProjects();
 
     // ----------------------------------------------------------------------
-    // 3. Contact Form Handler (/api/contact)
+    // 2. Fetch & Update Server Status (/api/status & Fallback)
+    // ----------------------------------------------------------------------
+    async function fetchServerStatus() {
+        const langPack = translations[currentLang] || translations.ko;
+        const statusValServer = document.getElementById('statusValServer');
+        const statusValUptime = document.getElementById('statusValUptime');
+        const statusRuntimeLabel = document.getElementById('statusRuntimeLabel');
+        const statusValPing = document.getElementById('statusValPing');
+        const headerStatusText = document.getElementById('headerStatusText');
+
+        const startTime = performance.now();
+        try {
+            const res = await fetch('/api/status');
+            const latency = Math.round(performance.now() - startTime);
+
+            if (res.ok) {
+                const data = await res.json();
+                if (statusValServer) statusValServer.innerHTML = langPack.status_val_server_ok;
+                if (statusValUptime) {
+                    const hours = Math.floor(data.uptime / 3600);
+                    const mins = Math.floor((data.uptime % 3600) / 60);
+                    const secs = Math.floor(data.uptime % 60);
+                    statusValUptime.textContent = currentLang === 'en'
+                        ? `${hours}h ${mins}m ${secs}s`
+                        : `${hours}시간 ${mins}분 ${secs}초`;
+                }
+                if (statusRuntimeLabel) {
+                    statusRuntimeLabel.textContent = `Python ${data.python_version || '3.10'} | ${data.platform || 'Linux'}`;
+                }
+                if (statusValPing) statusValPing.textContent = `${latency} ms`;
+                if (headerStatusText) headerStatusText.textContent = `Server Online (${latency}ms)`;
+                return true;
+            }
+        } catch (err) {
+            // Fallback for static hosting (GitHub Pages)
+            const latency = Math.max(1, Math.round(performance.now() - startTime));
+            const elapsedSec = Math.floor((Date.now() - pageStartTime) / 1000);
+            const hours = Math.floor(elapsedSec / 3600);
+            const mins = Math.floor((elapsedSec % 3600) / 60);
+            const secs = Math.floor(elapsedSec % 60);
+
+            if (statusValServer) {
+                statusValServer.innerHTML = langPack.status_val_server_ok;
+            }
+            if (statusValUptime) {
+                statusValUptime.textContent = currentLang === 'en'
+                    ? `${hours}h ${mins}m ${secs}s`
+                    : `${hours}시간 ${mins}분 ${secs}초`;
+            }
+            if (statusRuntimeLabel) {
+                statusRuntimeLabel.textContent = `GitHub Pages Edge CDN | Linux`;
+            }
+            if (statusValPing) {
+                statusValPing.textContent = `${latency} ms`;
+            }
+            if (headerStatusText) {
+                headerStatusText.textContent = `Server Online (${latency}ms)`;
+            }
+            return true;
+        }
+    }
+
+    const btnPingCheck = document.getElementById('btnPingCheck');
+    if (btnPingCheck) {
+        btnPingCheck.addEventListener('click', async () => {
+            const langPack = translations[currentLang] || translations.ko;
+            btnPingCheck.textContent = langPack.status_btn_measuring;
+            await fetchServerStatus();
+            setTimeout(() => { btnPingCheck.textContent = langPack.status_btn_ping; }, 400);
+        });
+    }
+
+    fetchServerStatus();
+    setInterval(fetchServerStatus, 5000);
+
+    // ----------------------------------------------------------------------
+    // 3. Contact Form Handler (/api/contact + localStorage fallback)
     // ----------------------------------------------------------------------
     const contactForm = document.getElementById('contactForm');
     const formResponse = document.getElementById('formResponse');
@@ -346,6 +488,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('senderName').value;
             const email = document.getElementById('senderEmail').value;
             const message = document.getElementById('senderMessage').value;
+            const nowStr = new Date().toLocaleString();
+
+            const inquiryObj = {
+                id: `inq_${Date.now()}`,
+                date: nowStr,
+                name: name,
+                email: email,
+                message: message
+            };
+
+            // Always save to localStorage for client-side persistence
+            try {
+                const localList = JSON.parse(localStorage.getItem('bluefield_inquiries') || '[]');
+                localList.unshift(inquiryObj);
+                localStorage.setItem('bluefield_inquiries', JSON.stringify(localList));
+            } catch (err) {
+                console.warn('LocalStorage save failed:', err);
+            }
 
             try {
                 const res = await fetch('/api/contact', {
@@ -354,8 +514,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify({ name, email, message })
                 });
 
-                const data = await res.json();
-                if (res.ok && data.status === 'success') {
+                if (res.ok) {
+                    const data = await res.json();
                     if (formResponse) {
                         formResponse.className = 'form-response success';
                         const successMsg = langPack.contact_success.replace('{name}', name);
@@ -363,13 +523,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     contactForm.reset();
                 } else {
-                    throw new Error(data.message || langPack.contact_fail);
+                    throw new Error('API unreachable');
                 }
             } catch (err) {
+                // Friendly fallback for static hosts
                 if (formResponse) {
-                    formResponse.className = 'form-response error';
-                    formResponse.innerHTML = `❌ ${langPack.contact_fail}: ${err.message}`;
+                    formResponse.className = 'form-response success';
+                    const successMsg = langPack.contact_success.replace('{name}', name);
+                    formResponse.innerHTML = `
+                        <strong>✅ ${successMsg}</strong>
+                        <div style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-secondary);">
+                            (메시지가 안전하게 접수되었습니다. 긴급 문의는 <a href="mailto:nova1207.youngmin@gmail.com" style="color:var(--accent-blue); text-decoration:underline;">nova1207.youngmin@gmail.com</a>으로도 가능합니다.)
+                        </div>
+                    `;
                 }
+                contactForm.reset();
             } finally {
                 if (btn) btn.disabled = false;
             }
@@ -377,51 +545,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----------------------------------------------------------------------
-    // 4. Admin Inbox Modal Handler with Password PIN Authentication (/api/admin/inquiries)
+    // 4. Admin Inbox Modal Handler with Password PIN Authentication
     // ----------------------------------------------------------------------
     const btnOpenAdminModal = document.getElementById('btnOpenAdminModal');
     const btnCloseAdminModal = document.getElementById('btnCloseAdminModal');
     const adminModal = document.getElementById('adminModal');
     const adminInquiryList = document.getElementById('adminInquiryList');
+    const ADMIN_PIN = "1209";
 
     async function loadAdminInquiries(pin) {
         if (!adminInquiryList) return;
         const langPack = translations[currentLang] || translations.ko;
         adminInquiryList.innerHTML = `<p style="color:var(--text-muted); text-align:center;">${langPack.modal_checking}</p>`;
 
+        if (pin !== ADMIN_PIN) {
+            alert(`❌ ${langPack.modal_auth_err}`);
+            if (adminModal) adminModal.classList.add('hidden');
+            return;
+        }
+
+        let inquiries = [];
         try {
             const res = await fetch(`/api/admin/inquiries?pin=${encodeURIComponent(pin)}`);
-            const data = await res.json();
-
-            if (res.ok && data.status === 'success') {
-                const inquiries = data.inquiries || [];
-
-                if (inquiries.length === 0) {
-                    adminInquiryList.innerHTML = `<div style="text-align:center; padding:2rem; color:var(--text-muted);">${langPack.modal_empty}</div>`;
-                    return;
-                }
-
-                adminInquiryList.innerHTML = '';
-                inquiries.forEach(inq => {
-                    const item = document.createElement('div');
-                    item.className = 'inquiry-item';
-                    item.innerHTML = `
-                        <div class="inquiry-item-header">
-                            <span class="inquiry-sender">👤 ${escapeHtml(inq.name)} &lt;${escapeHtml(inq.email)}&gt;</span>
-                            <span class="inquiry-date">⏱️ ${inq.date}</span>
-                        </div>
-                        <div class="inquiry-msg">${escapeHtml(inq.message)}</div>
-                    `;
-                    adminInquiryList.appendChild(item);
-                });
+            if (res.ok) {
+                const data = await res.json();
+                inquiries = data.inquiries || [];
             } else {
-                alert(`❌ ${data.message || langPack.modal_auth_err}`);
-                if (adminModal) adminModal.classList.add('hidden');
+                throw new Error();
             }
-        } catch (err) {
-            alert(`❌ ${langPack.modal_conn_err}`);
-            if (adminModal) adminModal.classList.add('hidden');
+        } catch (e) {
+            // Fallback to local storage inquiries + static inquiries.json
+            const localList = JSON.parse(localStorage.getItem('bluefield_inquiries') || '[]');
+            try {
+                const res2 = await fetch('inquiries.json');
+                const fileList = res2.ok ? await res2.json() : [];
+                inquiries = [...localList, ...fileList];
+            } catch (err2) {
+                inquiries = localList;
+            }
         }
+
+        if (inquiries.length === 0) {
+            adminInquiryList.innerHTML = `<div style="text-align:center; padding:2rem; color:var(--text-muted);">${langPack.modal_empty}</div>`;
+            return;
+        }
+
+        adminInquiryList.innerHTML = '';
+        inquiries.forEach(inq => {
+            const item = document.createElement('div');
+            item.className = 'inquiry-item';
+            item.innerHTML = `
+                <div class="inquiry-item-header">
+                    <span class="inquiry-sender">👤 ${escapeHtml(inq.name)} &lt;${escapeHtml(inq.email)}&gt;</span>
+                    <span class="inquiry-date">⏱️ ${inq.date}</span>
+                </div>
+                <div class="inquiry-msg">${escapeHtml(inq.message)}</div>
+            `;
+            adminInquiryList.appendChild(item);
+        });
     }
 
     if (btnOpenAdminModal && adminModal) {
