@@ -21,6 +21,25 @@
     "link": "https://play.google.com/store/apps/details?id=com.bluefield.atelier.oneul"
   },
   {
+    "id": "app-hojumeoni",
+    "featured": false,
+    "image": "banner_hojumeoni.png",
+    "title": "호주머니 - 나만의 스마트 취향 보관함 & 아카이빙",
+    "title_en": "Hojumeoni - Smart Content Pocket & Pocket Archive",
+    "category": "Mobile App",
+    "badge": "Google Play",
+    "badge_en": "Google Play",
+    "subtitle": "어떤 앱에서든 1초 만에 쏙! 링크·사진·문서 스마트 보관함",
+    "subtitle_en": "1-second quick save & smart bookmark archive for links, media, and files",
+    "description": "브라우저, 유튜브, SNS 등 어디서든 공유하기 버튼 한 번으로 링크, 사진, 미디어, 문서를 간편하게 보관하고 태그·초성 검색과 구글 드라이브 백업으로 언제든 꺼내볼 수 있는 스마트 아카이빙 앱입니다.",
+    "description_en": "A smart personal archiving application that saves links, media, and documents in one tap via Android Share Sheet, featuring tag classification, fast search, tablet multi-window layout, and Google Drive backup.",
+    "tags": ["Android", "스마트보관함", "링크스크랩", "자료아카이빙", "구글드라이브"],
+    "tags_en": ["Android", "SmartPocket", "LinkArchiving", "QuickSave", "GoogleDrive"],
+    "techStack": ["Android", "Kotlin", "Google Drive API", "Media Viewer"],
+    "codeSnippet": "com.bluefield.atelier.hojumeoni",
+    "link": "https://play.google.com/store/apps/details?id=com.bluefield.atelier.hojumeoni"
+  },
+  {
     "id": "app-musahi",
     "featured": false,
     "image": "banner_musahi.png",
