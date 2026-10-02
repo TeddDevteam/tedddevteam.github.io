@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_featured: "대표 앱",
             nav_projects: "프로젝트",
             nav_status: "서버 상태",
+            nav_privacy: "개인정보처리방침",
             nav_contact: "소통하기",
             hero_pill: "BlueField Atelier Studio",
             hero_title_1: "소소하지만 필요한 가치를",
@@ -69,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal_conn_err: "인증 통신 오류가 발생했습니다.",
             footer_desc: "소소하지만 필요한 가치를 빚어내는 개인 개발 스튜디오",
             footer_admin_btn: "📩 수신 이야기함 확인",
+            footer_privacy_link: "개인정보처리방침 (Privacy Policy)",
             card_upcoming: "✨ 출시 준비 중",
             card_details: "자세히 보기 (Google Play) ↗",
             card_server_status: "실시간 서버 상태 보기 ↓"
@@ -78,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_featured: "Flagship",
             nav_projects: "Projects",
             nav_status: "Server Status",
+            nav_privacy: "Privacy Policy",
             nav_contact: "Contact",
             hero_pill: "BlueField Atelier Studio",
             hero_title_1: "Crafting thoughtful software",
@@ -137,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal_conn_err: "Authentication network error.",
             footer_desc: "Independent development studio crafting thoughtful, everyday software.",
             footer_admin_btn: "📩 Check Operator Inbox",
+            footer_privacy_link: "Privacy Policy",
             card_upcoming: "✨ Coming Soon",
             card_details: "View on Google Play ↗",
             card_server_status: "View Live Server Telemetry ↓"
