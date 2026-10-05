@@ -41,6 +41,27 @@
     "link": "https://play.google.com/store/apps/details?id=com.bluefield.atelier.oneul"
   },
   {
+    "id": "app-waku",
+    "featured": false,
+    "isUpcoming": true,
+    "image": "banner_waku.png",
+    "icon": "waku_jpn.webp",
+    "title": "Waku 일본어 - 스마트 JLPT & 테마 일본어 학습",
+    "title_en": "Waku Japanese - Smart JLPT & Thematic Japanese Learning",
+    "category": "Mobile App",
+    "badge": "🚀 출시 예정",
+    "badge_en": "🚀 Coming Soon",
+    "subtitle": "Jetpack Compose 기반의 가볍고 직관적인 모던 일본어 학습",
+    "subtitle_en": "Lightweight & intuitive modern Japanese learning powered by Jetpack Compose",
+    "description": "JLPT N5~N1 필수 단어, 한자, 일상·여행·비즈니스 예문을 3단계 카드 학습과 퀴즈로 재미있게 마스터하는 모바일 앱입니다. Material 3 기반 세련된 디자인, 100% 오프라인 사전 DB, 원어민 TTS 음성 및 수면 모드/자연 BGM을 지원합니다.",
+    "description_en": "Master JLPT N5–N1 vocabulary, kanji, and practical sentences with 3-phase interactive flashcards and quizzes. Built with Material 3 design, 100% offline Room DB, native TTS pronunciation, and soothing sleep mode with ambient BGM.",
+    "tags": ["Android", "일본어학습", "JLPT", "JetpackCompose", "출시예정"],
+    "tags_en": ["Android", "JapaneseLearning", "JLPT", "JetpackCompose", "ComingSoon"],
+    "techStack": ["Android", "Jetpack Compose", "Kotlin", "Room DB", "Material 3"],
+    "codeSnippet": "com.bluefield.atelier.waku",
+    "link": "#"
+  },
+  {
     "id": "app-musahi",
     "featured": false,
     "image": "banner_musahi.png",
